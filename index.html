@@ -137,21 +137,21 @@
 
         /* --- Privacy View Styling --- */
         #privacy-view {
-            display: none; /* Hidden by default */
-            padding-top: 60px;
+            display: none;
+            padding: 60px 0;
         }
 
         .policy-card {
             background: var(--surface-gray);
             border: 1px solid var(--border-color);
             padding: 40px;
-            margin-bottom: 30px;
+            line-height: 1.8;
+            color: var(--text-silver);
         }
 
-        .policy-card h2 {
+        .policy-card h2, .policy-card h3 {
             color: var(--neon-orange);
             text-transform: uppercase;
-            margin-top: 0;
         }
 
         .back-link {
@@ -162,10 +162,8 @@
             margin-bottom: 30px;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
-        /* --- Footer --- */
         footer {
             margin-top: 100px;
             padding: 60px 0;
@@ -173,27 +171,16 @@
             text-align: center;
         }
 
-        .footer-nav {
-            margin: 20px 0;
-        }
-
+        .footer-nav { margin: 20px 0; }
         .footer-nav a {
             color: var(--text-silver);
             text-decoration: none;
             margin: 0 15px;
             font-size: 0.85rem;
-            transition: 0.3s;
             cursor: pointer;
         }
 
-        .footer-nav a:hover {
-            color: var(--neon-orange);
-        }
-
-        .contact-email {
-            color: var(--neon-orange);
-            font-weight: bold;
-        }
+        .contact-email { color: var(--neon-orange); font-weight: bold; }
     </style>
 </head>
 <body>
@@ -204,7 +191,6 @@
             <span class="brand">Multilife Solutions</span>
             <h1>UNREAL <span>INSIGHTS.</span><br>LIVE ACTION.</h1>
             <p class="hero-desc">The ultimate digital architecture for sports fanatics. We deliver precision data and real-time alerts across every league on the planet.</p>
-            
             <div class="cta-group">
                 <a href="#" class="btn-main">Get Access Now</a>
             </div>
@@ -230,18 +216,33 @@
     </div>
 
     <div id="privacy-view">
-        <div class="back-link" onclick="toggleView('main')"><i class="fas fa-arrow-left"></i> Back to Intelligence</div>
-        
+        <div class="back-link" onclick="toggleView('main')"><i class="fas fa-arrow-left"></i> Return to Site</div>
         <div class="policy-card">
-            <h2>Privacy Protocol</h2>
-            <p style="color: var(--neon-orange); font-size: 0.8rem; letter-spacing: 2px;">LAST UPDATED: MARCH 2026</p>
-            <p>At Multilife Solutions, we prioritize the security of your tactical data. Our platform is designed with minimal data footprints to ensure user anonymity where possible.</p>
+            <h2>Privacy Policy</h2>
+            <p><strong>Last Updated: March 2026</strong></p>
+            <p>At Multilife Solutions, accessible from multilifesolutionsinvestments.org, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Multilife Solutions and how we use it.</p>
             
-            <h3>1. Data Acquisition</h3>
-            <p>We collect essential data such as email addresses for account verification and technical logs (IP/Browser) to optimize our real-time delivery engine.</p>
-            
-            <h3>2. Data Security</h3>
-            <p>Your data is encrypted via SSL and stored on secure servers. We do not sell player or fan metrics to third-party advertising or betting networks.</p>
+            <h3>1. Information We Collect</h3>
+            <p>Multilife Solutions is designed to provide sports updates with minimal data collection. We may collect:</p>
+            <ul>
+                <li><strong>Device Information:</strong> To ensure notifications are delivered correctly to your specific model.</li>
+                <li><strong>Favorites:</strong> Your selected teams and leagues are stored to personalize your experience.</li>
+            </ul>
+
+            <h3>2. Background Data Usage</h3>
+            <p>Our infrastructure uses background services to provide real-time goal alerts. This process checks for score updates at regular intervals. No personal browsing data or location data is tracked during this process.</p>
+
+            <h3>3. How We Use Your Information</h3>
+            <p>We use the information to maintain our app, improve user experience, and send push notifications for match events (goals, start/end).</p>
+
+            <h3>4. Third-Party Services</h3>
+            <p>We use reliable sports data APIs. These providers do not have access to your personal identity. Notification delivery systems adhere to strict privacy standards.</p>
+
+            <h3>5. Security</h3>
+            <p>We use commercially acceptable means of protecting your information.</p>
+
+            <h3>Contact Us</h3>
+            <p>For data inquiries: <span class="contact-email">company@multilifesolutionsinvestments.org</span></p>
         </div>
     </div>
 
@@ -264,11 +265,11 @@
         if (view === 'privacy') {
             main.style.display = 'none';
             privacy.style.display = 'block';
-            window.scrollTo(0, 0);
+            window.scrollTo(0,0);
         } else {
             main.style.display = 'block';
             privacy.style.display = 'none';
-            window.scrollTo(0, 0);
+            window.scrollTo(0,0);
         }
     }
 </script>
