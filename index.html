@@ -22,7 +22,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated background element */
         body::before {
             content: "";
             position: fixed;
@@ -40,45 +39,11 @@
             padding: 20px;
         }
 
-        header {
-            text-align: center;
-            padding: 100px 0 60px;
-        }
-
-        .brand {
-            font-size: 0.9rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--neon-orange);
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            margin: 0;
-            font-weight: 900;
-            line-height: 1.1;
-        }
-
-        h1 span {
-            -webkit-text-stroke: 1px white;
-            color: transparent;
-        }
-
-        .hero-desc {
-            color: var(--text-silver);
-            font-size: 1.2rem;
-            max-width: 650px;
-            margin: 20px auto 40px;
-        }
-
-        .cta-group {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+        header { text-align: center; padding: 100px 0 60px; }
+        .brand { font-size: 0.9rem; letter-spacing: 5px; text-transform: uppercase; color: var(--neon-orange); margin-bottom: 10px; display: block; }
+        h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; font-weight: 900; line-height: 1.1; }
+        h1 span { -webkit-text-stroke: 1px white; color: transparent; }
+        .hero-desc { color: var(--text-silver); font-size: 1.2rem; max-width: 650px; margin: 20px auto 40px; }
 
         .btn-main {
             background: var(--neon-orange);
@@ -94,124 +59,38 @@
             cursor: pointer;
         }
 
-        .btn-main:hover {
-            transform: skew(-2deg) scale(1.05);
-            filter: brightness(1.2);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 80px;
-        }
-
-        .card {
-            background: var(--surface-gray);
-            border: 1px solid var(--border-color);
-            padding: 40px;
-            position: relative;
-            transition: 0.4s;
-        }
-
-        .card:hover {
-            border-color: var(--neon-orange);
-            transform: translateY(-10px);
-        }
-
-        .card i {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--neon-orange);
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            color: var(--text-silver);
-            line-height: 1.7;
-        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 80px; }
+        .card { background: var(--surface-gray); border: 1px solid var(--border-color); padding: 40px; transition: 0.4s; }
+        .card i { font-size: 2.5rem; margin-bottom: 20px; color: var(--neon-orange); }
 
         /* --- Privacy View Styling --- */
-        #privacy-view {
-            display: none;
-            padding: 60px 0;
-        }
+        #privacy-view { display: none; padding: 60px 0; }
+        .policy-card { background: var(--surface-gray); border: 1px solid var(--border-color); padding: 40px; line-height: 1.8; color: var(--text-silver); }
+        .policy-card h2, .policy-card h3 { color: var(--neon-orange); text-transform: uppercase; }
+        .back-link { color: var(--neon-orange); text-decoration: none; font-weight: bold; display: inline-block; margin-bottom: 30px; cursor: pointer; }
 
-        .policy-card {
-            background: var(--surface-gray);
-            border: 1px solid var(--border-color);
-            padding: 40px;
-            line-height: 1.8;
-            color: var(--text-silver);
-        }
-
-        .policy-card h2, .policy-card h3 {
-            color: var(--neon-orange);
-            text-transform: uppercase;
-        }
-
-        .back-link {
-            color: var(--neon-orange);
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 30px;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-
-        footer {
-            margin-top: 100px;
-            padding: 60px 0;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-        }
-
-        .footer-nav { margin: 20px 0; }
-        .footer-nav a {
-            color: var(--text-silver);
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 0.85rem;
-            cursor: pointer;
-        }
-
+        footer { margin-top: 100px; padding: 60px 0; border-top: 1px solid var(--border-color); text-align: center; }
+        .footer-nav a { color: var(--text-silver); text-decoration: none; margin: 0 15px; cursor: pointer; }
         .contact-email { color: var(--neon-orange); font-weight: bold; }
     </style>
 </head>
-<body>
+<body onload="checkHash()">
 
 <div class="container">
     <div id="main-view">
         <header>
             <span class="brand">Multilife Solutions</span>
             <h1>UNREAL <span>INSIGHTS.</span><br>LIVE ACTION.</h1>
-            <p class="hero-desc">The ultimate digital architecture for sports fanatics. We deliver precision data and real-time alerts across every league on the planet.</p>
+            <p class="hero-desc">The ultimate digital architecture for sports fanatics.</p>
             <div class="cta-group">
                 <a href="#" class="btn-main">Get Access Now</a>
             </div>
         </header>
 
         <section class="grid">
-            <div class="card">
-                <i class="fas fa-microchip"></i>
-                <h3>Predictive Engine</h3>
-                <p>Our algorithms process thousands of data points per second to predict match flow before it happens.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-vr-cardboard"></i>
-                <h3>Live 3D Tracking</h3>
-                <p>Experience the pitch like never before with virtual positional tracking for top-flight European leagues.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-user-secret"></i>
-                <h3>Scout Mode</h3>
-                <p>Access heatmaps and player-specific metrics usually reserved for professional backroom staff.</p>
-            </div>
+            <div class="card"><i class="fas fa-microchip"></i><h3>Predictive Engine</h3><p>Predict match flow before it happens.</p></div>
+            <div class="card"><i class="fas fa-vr-cardboard"></i><h3>Live 3D Tracking</h3><p>Virtual positional tracking.</p></div>
+            <div class="card"><i class="fas fa-user-secret"></i><h3>Scout Mode</h3><p>Professional backroom metrics.</p></div>
         </section>
     </div>
 
@@ -220,39 +99,24 @@
         <div class="policy-card">
             <h2>Privacy Policy</h2>
             <p><strong>Last Updated: March 2026</strong></p>
-            <p>At Multilife Solutions, accessible from multilifesolutionsinvestments.org, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Multilife Solutions and how we use it.</p>
-            
+            <p>At Multilife Solutions, accessible from multilifesolutionsinvestments.org, one of our main priorities is the privacy of our visitors.</p>
             <h3>1. Information We Collect</h3>
-            <p>Multilife Solutions is designed to provide sports updates with minimal data collection. We may collect:</p>
-            <ul>
-                <li><strong>Device Information:</strong> To ensure notifications are delivered correctly to your specific model.</li>
-                <li><strong>Favorites:</strong> Your selected teams and leagues are stored to personalize your experience.</li>
-            </ul>
-
+            <p>Multilife Solutions is designed to provide sports updates with minimal data collection. We collect Device Information and Favorites to personalize your experience.</p>
             <h3>2. Background Data Usage</h3>
-            <p>Our infrastructure uses background services to provide real-time goal alerts. This process checks for score updates at regular intervals. No personal browsing data or location data is tracked during this process.</p>
-
-            <h3>3. How We Use Your Information</h3>
-            <p>We use the information to maintain our app, improve user experience, and send push notifications for match events (goals, start/end).</p>
-
+            <p>Our app uses background services for real-time alerts. No personal browsing or location data is tracked.</p>
+            <h3>3. How We Use Information</h3>
+            <p>To operate the app, improve experience, and send push notifications.</p>
             <h3>4. Third-Party Services</h3>
-            <p>We use reliable sports data APIs. These providers do not have access to your personal identity. Notification delivery systems adhere to strict privacy standards.</p>
-
-            <h3>5. Security</h3>
-            <p>We use commercially acceptable means of protecting your information.</p>
-
+            <p>We use reliable sports data APIs that do not have access to your personal identity.</p>
             <h3>Contact Us</h3>
             <p>For data inquiries: <span class="contact-email">company@multilifesolutionsinvestments.org</span></p>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Multilife Solutions. Powered by High-Octane Data.</p>
-        <p>Support: <span class="contact-email">company@multilifesolutionsinvestments.org</span></p>
+        <p>&copy; 2026 Multilife Solutions.</p>
         <div class="footer-nav">
             <a onclick="toggleView('privacy')">Privacy Policy</a>
-            <a href="#">Terms of Play</a>
-            <a href="#">Cookies</a>
         </div>
     </footer>
 </div>
@@ -261,15 +125,23 @@
     function toggleView(view) {
         const main = document.getElementById('main-view');
         const privacy = document.getElementById('privacy-view');
-        
         if (view === 'privacy') {
             main.style.display = 'none';
             privacy.style.display = 'block';
+            location.hash = "privacy";
             window.scrollTo(0,0);
         } else {
             main.style.display = 'block';
             privacy.style.display = 'none';
+            history.replaceState(null, null, ' ');
             window.scrollTo(0,0);
+        }
+    }
+
+    // This function checks if the link has #privacy at the end
+    function checkHash() {
+        if (window.location.hash === "#privacy") {
+            toggleView('privacy');
         }
     }
 </script>
