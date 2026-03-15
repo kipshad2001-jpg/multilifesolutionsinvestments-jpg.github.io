@@ -20,6 +20,7 @@
             color: white;
             margin: 0;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         /* Animated background element */
@@ -38,6 +39,7 @@
             max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
+            transition: opacity 0.3s ease;
         }
 
         header {
@@ -52,6 +54,7 @@
             color: var(--neon-orange);
             margin-bottom: 10px;
             display: block;
+            cursor: pointer;
         }
 
         h1 {
@@ -89,6 +92,8 @@
             text-transform: uppercase;
             clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
             transition: 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-main:hover {
@@ -132,6 +137,36 @@
             line-height: 1.7;
         }
 
+        /* Privacy Policy Section Styling */
+        #privacy-content {
+            display: none;
+            padding: 60px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .policy-box {
+            background: var(--surface-gray);
+            border-left: 4px solid var(--neon-orange);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .policy-box h3 {
+            color: var(--neon-orange);
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+
+        .back-btn {
+            color: var(--neon-orange);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
         footer {
             margin-top: 100px;
             padding: 60px 0;
@@ -149,6 +184,7 @@
             margin: 0 15px;
             font-size: 0.85rem;
             transition: 0.3s;
+            cursor: pointer;
         }
 
         .footer-nav a:hover {
@@ -163,9 +199,9 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container" id="main-site">
     <header>
-        <span class="brand">Multilife Solutions</span>
+        <span class="brand" onclick="togglePrivacy(false)">Multilife Solutions</span>
         <h1>UNREAL <span>INSIGHTS.</span><br>LIVE ACTION.</h1>
         <p class="hero-desc">The ultimate digital architecture for sports fanatics. We deliver precision data and real-time alerts across every league on the planet.</p>
         
@@ -191,17 +227,18 @@
             <p>Access heatmaps and player-specific metrics usually reserved for professional backroom staff.</p>
         </div>
     </section>
-
-    <footer>
-        <p>&copy; 2026 Multilife Solutions. Powered by High-Octane Data.</p>
-        <p>Support: <span class="contact-email">company@multilifesolutionsinvestments.org</span></p>
-        <div class="footer-nav">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="#">Terms of Play</a>
-            <a href="#">Cookies</a>
-        </div>
-    </footer>
 </div>
 
-</body>
-</html>
+<div class="container" id="privacy-content">
+    <div class="back-btn" onclick="togglePrivacy(false)"><i class="fas fa-arrow-left"></i> RETURN TO HQ</div>
+    <h1>PRIVACY <span>PROTOCOL.</span></h1>
+    <p style="color: var(--neon-orange); letter-spacing: 2px;">LAST DEPLOYMENT: MARCH 2026</p>
+    
+    <div class="policy-box">
+        <h3>1. Data Acquisition</h3>
+        <p>We collect telemetry necessary to fuel your intelligence experience, including email addresses provided for access and technical data (IP/Browser) to optimize our engine.</p>
+    </div>
+
+    <div class="policy-box">
+        <h3>2. Use of Intelligence</h3>
+        <p>Your data is used strictly to calibrate predictive algorithms and ensure system security. We do
